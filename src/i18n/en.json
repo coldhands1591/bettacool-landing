@@ -1,0 +1,170 @@
+{
+    "nav": {
+        "features": "Features",
+        "why": "Why bettacool",
+        "signup": "Sign Up",
+        "lang": "TH"
+    },
+    "hero": {
+        "badge": "The App Built for Betta Fish Lovers",
+        "title": "Home for Betta Fish Lovers",
+        "subtitle": "Built by Breeders, for Breeders",
+        "description": "Post, auction, buy, sell, chat, and share knowledge — no bans, no blocks.",
+        "cta": "Get Notified When We Launch",
+        "comingSoon": "Coming Soon to App Store & Play Store"
+    },
+    "pain": {
+        "title": "Tired of Getting Banned?",
+        "subtitle": "Betta fish lovers face the same problems everywhere",
+        "items": [
+            {
+                "icon": "🚫",
+                "title": "Banned Over and Over",
+                "desc": "Facebook & Instagram block animal sales without understanding our culture."
+            },
+            {
+                "icon": "💔",
+                "title": "Groups Keep Getting Shut Down",
+                "desc": "Build a new group, get shut down again. Thousands of members lost in an instant."
+            },
+            {
+                "icon": "😤",
+                "title": "Community Scattered",
+                "desc": "No central place to gather. Always running, can't sell fish, can't share knowledge."
+            }
+        ]
+    },
+    "solution": {
+        "title": "Today, We Have the Answer",
+        "subtitle": "bettacool — A Permanent Home for Betta Lovers",
+        "items": [
+            {
+                "icon": "✅",
+                "title": "No Bans",
+                "desc": "Trade betta fish freely — because we understand."
+            },
+            {
+                "icon": "🏠",
+                "title": "No More Group Shutdowns",
+                "desc": "This home is ours. It's never going away."
+            },
+            {
+                "icon": "❤️",
+                "title": "Do What You Love",
+                "desc": "Auction, trade, and share with peace of mind."
+            }
+        ]
+    },
+    "features": {
+        "title": "Features Designed for You",
+        "subtitle": "Everything a betta fish lover needs, in one app",
+        "items": [
+            {
+                "icon": "📰",
+                "title": "Community Feed",
+                "desc": "Share photos, videos, and stories of your betta fish. Like, comment, and connect."
+            },
+            {
+                "icon": "💰",
+                "title": "Buy & Sell",
+                "desc": "List your betta fish for sale with photos, videos, and detailed breed information."
+            },
+            {
+                "icon": "🔨",
+                "title": "Live Auctions",
+                "desc": "Real-time bidding with anti-sniping protection. Fair and exciting auctions."
+            },
+            {
+                "icon": "👥",
+                "title": "Groups & Communities",
+                "desc": "Create or join specialized groups — by breed, region, or topic."
+            },
+            {
+                "icon": "💬",
+                "title": "Private Messaging",
+                "desc": "Chat instantly with community members. Share photos and videos in private."
+            },
+            {
+                "icon": "🔔",
+                "title": "Notifications",
+                "desc": "Stay updated with real-time alerts for likes, comments, follows, and bids."
+            }
+        ]
+    },
+    "comparison": {
+        "title": "Why bettacool?",
+        "subtitle": "Compared to Regular Social Media",
+        "headers": [
+            "",
+            "Regular Social Media",
+            "bettacool"
+        ],
+        "rows": [
+            [
+                "Animal Sales",
+                "Blocked & Banned",
+                "Fully Supported"
+            ],
+            [
+                "Community Understanding",
+                "Doesn't Understand",
+                "Built for Breeders"
+            ],
+            [
+                "Algorithm",
+                "Unfriendly",
+                "Interest-Based Feed"
+            ],
+            [
+                "Auction System",
+                "None",
+                "Real-time Bidding"
+            ],
+            [
+                "Group Safety",
+                "Can Be Shut Down Anytime",
+                "Permanent Home"
+            ]
+        ]
+    },
+    "email": {
+        "title": "Be the First to Use bettacool",
+        "subtitle": "Sign up to get notified when the app is ready to download",
+        "placeholder": "Enter your email",
+        "button": "Notify Me",
+        "success": "Registered! We'll let you know when the app is ready.",
+        "error": "Please enter a valid email address",
+        "privacy": "We won't spam you and you can unsubscribe anytime."
+    },
+    "brand": {
+        "quote": "The Siamese Fighting Fish is a cultural heritage and a source of pride.",
+        "author": "bettacool is our home.",
+        "values": [
+            {
+                "title": "Community First",
+                "desc": "Built for you, not for algorithms."
+            },
+            {
+                "title": "Trust & Safety",
+                "desc": "Trade with confidence and peace of mind."
+            },
+            {
+                "title": "Sustainability",
+                "desc": "We're here to stay, always."
+            },
+            {
+                "title": "Cultural Pride",
+                "desc": "Celebrating Thai Betta fish heritage."
+            }
+        ]
+    },
+    "footer": {
+        "description": "An app built by betta fish lovers, for betta fish lovers.",
+        "links": "Links",
+        "legal": "Legal",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "contact": "Contact Us",
+        "rights": "© 2026 bettacool. All rights reserved."
+    }
+}
