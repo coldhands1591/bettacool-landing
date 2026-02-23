@@ -132,7 +132,9 @@
         "subtitle": "Sign up to get notified when the app is ready to download",
         "placeholder": "Enter your email",
         "button": "Notify Me",
+        "loading": "Registering...",
         "success": "Registered! We'll let you know when the app is ready.",
+        "duplicate": "This email is already registered. We'll notify you when ready!",
         "error": "Please enter a valid email address",
         "privacy": "We won't spam you and you can unsubscribe anytime.",
         "socialProof": "people already registered"
