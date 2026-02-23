@@ -1,13 +1,21 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { Mail, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, Send, CheckCircle2, AlertCircle, Users } from 'lucide-react';
 
 export default function EmailSignup() {
     const { t } = useLanguage();
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [waitlistCount, setWaitlistCount] = useState(0);
+
+    // Social proof: base count + real localStorage entries
+    const BASE_COUNT = 247;
+    useEffect(() => {
+        const existing = JSON.parse(localStorage.getItem('bettacool-waitlist') || '[]');
+        setWaitlistCount(BASE_COUNT + existing.length);
+    }, [status]);
 
     const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
@@ -79,7 +87,16 @@ export default function EmailSignup() {
                     </button>
                 </form>
 
-                <p className="text-text-muted text-xs">{t.email.privacy}</p>
+                <p className="text-text-muted text-xs mb-4">{t.email.privacy}</p>
+
+                {/* Social proof */}
+                {waitlistCount > 0 && (
+                    <div className="inline-flex items-center gap-2 bg-accent/5 border border-accent/15 rounded-full px-5 py-2.5 text-sm text-accent animate-fade-in-up">
+                        <Users className="w-4 h-4" strokeWidth={1.5} />
+                        <span className="font-semibold">{waitlistCount.toLocaleString()}</span>
+                        <span className="text-text-secondary">{t.email.socialProof}</span>
+                    </div>
+                )}
             </div>
         </section>
     );

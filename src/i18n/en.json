@@ -134,7 +134,8 @@
         "button": "Notify Me",
         "success": "Registered! We'll let you know when the app is ready.",
         "error": "Please enter a valid email address",
-        "privacy": "We won't spam you and you can unsubscribe anytime."
+        "privacy": "We won't spam you and you can unsubscribe anytime.",
+        "socialProof": "people already registered"
     },
     "brand": {
         "quote": "The Siamese Fighting Fish is a cultural heritage and a source of pride.",

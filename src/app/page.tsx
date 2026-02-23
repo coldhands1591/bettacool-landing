@@ -9,6 +9,7 @@ import Comparison from '@/components/Comparison';
 import EmailSignup from '@/components/EmailSignup';
 import BrandStory from '@/components/BrandStory';
 import Footer from '@/components/Footer';
+import StickyCTA from '@/components/StickyCTA';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <BrandStory />
       </main>
       <Footer />
+      <StickyCTA />
     </>
   );
 }
