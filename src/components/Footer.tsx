@@ -38,8 +38,8 @@ export default function Footer() {
                         <h4 className="font-bold text-sm mb-4 text-text-primary">{t.footer.legal}</h4>
                         <ul className="flex flex-col gap-2.5 list-none">
                             <li><a href="https://coldhands1591.github.io/bettacool-legal/privacy-policy.html" target="_blank" rel="noopener noreferrer" className="text-text-secondary text-sm hover:text-accent transition-colors no-underline">{t.footer.privacy}</a></li>
-                            <li><a href="https://coldhands1591.github.io/bettacool-legal/terms.html" target="_blank" rel="noopener noreferrer" className="text-text-secondary text-sm hover:text-accent transition-colors no-underline">{t.footer.terms}</a></li>
-                            <li><a href="mailto:support@bettacool.com" className="text-text-secondary text-sm hover:text-accent transition-colors no-underline">{t.footer.contact}</a></li>
+                            <li><a href="https://coldhands1591.github.io/bettacool-legal/terms-of-service.html" target="_blank" rel="noopener noreferrer" className="text-text-secondary text-sm hover:text-accent transition-colors no-underline">{t.footer.terms}</a></li>
+                            <li><a href="#contact" className="text-text-secondary text-sm hover:text-accent transition-colors no-underline">{t.footer.contact}</a></li>
                         </ul>
                     </div>
                 </div>

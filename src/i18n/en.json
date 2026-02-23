@@ -169,5 +169,15 @@
         "terms": "Terms of Service",
         "contact": "Contact Us",
         "rights": "© 2026 bettacool. All rights reserved."
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "Have questions, suggestions, or want to collaborate? Send us a message!",
+        "namePlaceholder": "Your name",
+        "emailPlaceholder": "Your email",
+        "messagePlaceholder": "Write your message...",
+        "button": "Send Message",
+        "success": "Message sent! We'll get back to you as soon as possible.",
+        "error": "Please fill in all fields"
     }
 }
