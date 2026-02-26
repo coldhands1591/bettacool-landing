@@ -130,14 +130,25 @@
     "email": {
         "title": "Be the First to Use bettacool",
         "subtitle": "Sign up to get notified when the app is ready to download",
+        "platformLabel": "Which platform will you use?",
+        "platformHintIos": "Please use your App Store email to receive the download link directly",
+        "platformHintAndroid": "Please use your Play Store email to receive the download link directly",
+        "platformHintBoth": "Please use your App Store or Play Store email to receive the download link directly",
+        "ios": "iOS",
+        "android": "Android",
+        "both": "Both",
         "placeholder": "Enter your email",
         "button": "Notify Me",
         "loading": "Registering...",
-        "success": "Registered! We'll let you know when the app is ready.",
+        "success": "Registered Successfully!",
+        "successDesc": "We'll let you know when the app is ready to download.",
         "duplicate": "This email is already registered. We'll notify you when ready!",
         "error": "Please enter a valid email address",
         "privacy": "We won't spam you and you can unsubscribe anytime.",
-        "socialProof": "people already registered"
+        "socialProof": "people already registered",
+        "lineGroup": "Join LINE Group bettacool",
+        "lineGroupDesc": "Follow updates, get rewards & join special activities",
+        "registerAnother": "Register another email"
     },
     "brand": {
         "quote": "The Siamese Fighting Fish is a cultural heritage and a source of pride.",
