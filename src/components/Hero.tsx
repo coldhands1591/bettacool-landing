@@ -23,8 +23,8 @@ export default function Hero() {
             <div className="absolute bottom-[20%] left-[-10%] w-[300px] h-[300px] bg-purple-600 rounded-full blur-[80px] opacity-20 pointer-events-none" />
 
             <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
-                {/* Content */}
-                <div className="z-10 text-center lg:text-left order-2 lg:order-1">
+                {/* Content — shows first on mobile */}
+                <div className="z-10 text-center lg:text-left">
                     <span className="inline-block bg-accent/10 text-accent px-5 py-2 rounded-full text-sm font-semibold border border-accent/20 mb-6 animate-fade-in-up">
                         {t.hero.badge}
                     </span>
@@ -56,8 +56,8 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* Phone with carousel */}
-                <div className="flex justify-center items-center z-10 order-1 lg:order-2 animate-fade-in-up delay-300">
+                {/* Phone with carousel — shows after content on mobile */}
+                <div className="flex justify-center items-center z-10 animate-fade-in-up delay-300">
                     <PhoneCarousel />
                 </div>
             </div>

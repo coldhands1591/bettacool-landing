@@ -3,6 +3,7 @@
         "features": "Features",
         "why": "Why bettacool",
         "signup": "Sign Up",
+        "line": "LINE Group",
         "lang": "TH"
     },
     "hero": {
@@ -171,6 +172,17 @@
                 "desc": "Celebrating Thai Betta fish heritage."
             }
         ]
+    },
+    "line": {
+        "title": "Join LINE Group bettacool",
+        "description": "Join the bettacool family! Get the latest updates, new features, rewards, and exclusive early access to special activities.",
+        "benefits": [
+            "📢 Latest Updates",
+            "🎁 Special Rewards",
+            "🎮 Fun Activities",
+            "💬 Chat with the Team"
+        ],
+        "cta": "Join LINE Group"
     },
     "footer": {
         "description": "An app built by betta fish lovers, for betta fish lovers.",

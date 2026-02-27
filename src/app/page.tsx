@@ -9,6 +9,7 @@ import Comparison from '@/components/Comparison';
 import EmailSignup from '@/components/EmailSignup';
 import BrandStory from '@/components/BrandStory';
 import ContactForm from '@/components/ContactForm';
+import LineGroup from '@/components/LineGroup';
 import Footer from '@/components/Footer';
 import StickyCTA from '@/components/StickyCTA';
 
@@ -24,6 +25,7 @@ export default function Home() {
         <Comparison />
         <EmailSignup />
         <BrandStory />
+        <LineGroup />
         <ContactForm />
       </main>
       <Footer />

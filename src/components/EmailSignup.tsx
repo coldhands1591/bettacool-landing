@@ -7,6 +7,25 @@ import { Mail, Send, CheckCircle2, AlertCircle, Users, Smartphone, MessageCircle
 const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
 const LINE_GROUP_URL = 'https://line.me/ti/g/49hGDc9A9j';
 
+const AppleIcon = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+    </svg>
+);
+
+const PlayStoreIcon = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.61-.92zm10.89 9.48l2.706-2.706-11.46-6.406 8.754 9.112zm2.706 1.412L14.5 15.412l-8.754 9.112 11.46-6.406-2.706-2.706zM21.243 11.09l-3.13-1.751-2.983 2.983 2.984 2.984 3.13-1.752a1.07 1.07 0 000-1.906v-.558z" />
+    </svg>
+);
+
+const BothIcon = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <rect x="5" y="2" width="14" height="20" rx="3" />
+        <line x1="12" y1="18" x2="12" y2="18.01" strokeWidth="2" />
+    </svg>
+);
+
 type Platform = 'ios' | 'android' | 'both';
 type FlowState = 'selecting' | 'filling' | 'success';
 
@@ -140,11 +159,9 @@ export default function EmailSignup() {
                                     onClick={() => handleSelectPlatform(btn.key)}
                                     className="flex items-center justify-center gap-3 px-6 py-4 rounded-2xl border-2 border-border-subtle bg-bg-surface/60 backdrop-blur-sm text-text-primary font-semibold text-base cursor-pointer transition-all hover:border-accent/50 hover:bg-accent/5 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(67,97,238,0.15)] font-[inherit]"
                                 >
-                                    <span className="text-xl">
-                                        {btn.key === 'ios' && '🍎'}
-                                        {btn.key === 'android' && '🤖'}
-                                        {btn.key === 'both' && '📱'}
-                                    </span>
+                                    {btn.key === 'ios' && <AppleIcon className="w-5 h-5" />}
+                                    {btn.key === 'android' && <PlayStoreIcon className="w-5 h-5" />}
+                                    {btn.key === 'both' && <BothIcon className="w-5 h-5" />}
                                     {btn.label}
                                 </button>
                             ))}
@@ -170,11 +187,9 @@ export default function EmailSignup() {
                                 onClick={() => setFlowState('selecting')}
                                 className="inline-flex items-center gap-2 bg-accent/10 text-accent border border-accent/30 px-4 py-2 rounded-full font-semibold text-sm cursor-pointer transition-all hover:bg-accent/20 font-[inherit]"
                             >
-                                <span>
-                                    {platform === 'ios' && '🍎'}
-                                    {platform === 'android' && '🤖'}
-                                    {platform === 'both' && '📱'}
-                                </span>
+                                {platform === 'ios' && <AppleIcon className="w-4 h-4" />}
+                                {platform === 'android' && <PlayStoreIcon className="w-4 h-4" />}
+                                {platform === 'both' && <BothIcon className="w-4 h-4" />}
                                 {platform === 'ios' && t.email.ios}
                                 {platform === 'android' && t.email.android}
                                 {platform === 'both' && t.email.both}
