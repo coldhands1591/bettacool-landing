@@ -4,6 +4,8 @@ import { useState, FormEvent } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { MessageCircle, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
+
 export default function ContactForm() {
     const { t } = useLanguage();
     const [name, setName] = useState('');
@@ -22,16 +24,27 @@ export default function ContactForm() {
 
         setStatus('loading');
 
-        // Send via mailto fallback (opens email client with pre-filled content)
-        const subject = encodeURIComponent(`[bettacool Contact] จาก ${name}`);
-        const body = encodeURIComponent(`ชื่อ: ${name}\nEmail: ${email}\n\nข้อความ:\n${message}`);
-        window.open(`mailto:support@bettacool.com?subject=${subject}&body=${body}`, '_blank');
+        try {
+            const res = await fetch(`${API_URL}/api/Contact/Send`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message }),
+            });
 
-        setStatus('success');
-        setName('');
-        setEmail('');
-        setMessage('');
-        setTimeout(() => setStatus('idle'), 5000);
+            if (res.ok) {
+                setStatus('success');
+                setName('');
+                setEmail('');
+                setMessage('');
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                setStatus('error');
+                setTimeout(() => setStatus('idle'), 3000);
+            }
+        } catch {
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 3000);
+        }
     };
 
     return (
