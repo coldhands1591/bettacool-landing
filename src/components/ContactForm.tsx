@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { MessageCircle, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { MessageCircle, Send, CheckCircle2, AlertCircle, ChevronDown, Mail, HelpCircle } from 'lucide-react';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
@@ -12,6 +12,7 @@ export default function ContactForm() {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
 
     const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
@@ -46,6 +47,8 @@ export default function ContactForm() {
             setTimeout(() => setStatus('idle'), 3000);
         }
     };
+
+    const faqItems = (t.contact as Record<string, unknown>).faq as Array<{ q: string; a: string }> | undefined;
 
     return (
         <section className="py-20 md:py-28 px-6 bg-bg-surface relative overflow-hidden" id="contact">
@@ -110,7 +113,59 @@ export default function ContactForm() {
                         {t.contact.button}
                     </button>
                 </form>
+
+                {/* Support Email */}
+                <div className="mt-6 flex items-center justify-center gap-2 text-text-secondary text-sm">
+                    <Mail className="w-4 h-4" strokeWidth={1.5} />
+                    <span>{(t.contact as Record<string, unknown>).supportEmailLabel as string}</span>
+                    <a
+                        href={`mailto:${(t.contact as Record<string, unknown>).supportEmail as string}`}
+                        className="text-accent hover:underline font-medium"
+                    >
+                        {(t.contact as Record<string, unknown>).supportEmail as string}
+                    </a>
+                </div>
             </div>
+
+            {/* FAQ Section */}
+            {faqItems && faqItems.length > 0 && (
+                <div className="max-w-[600px] mx-auto mt-16 relative z-10">
+                    <div className="flex items-center justify-center gap-2 mb-8">
+                        <HelpCircle className="w-6 h-6 text-accent" strokeWidth={1.5} />
+                        <h3 className="text-2xl sm:text-3xl font-bold text-text-primary">
+                            {(t.contact as Record<string, unknown>).faqTitle as string}
+                        </h3>
+                    </div>
+
+                    <div className="flex flex-col gap-3">
+                        {faqItems.map((item, index) => (
+                            <div
+                                key={index}
+                                className="bg-bg-primary border border-border-subtle rounded-2xl overflow-hidden transition-all"
+                            >
+                                <button
+                                    className="w-full flex items-center justify-between px-5 py-4 text-left text-text-primary font-medium text-base cursor-pointer bg-transparent border-none font-[inherit] hover:bg-accent/5 transition-colors"
+                                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                                >
+                                    <span>{item.q}</span>
+                                    <ChevronDown
+                                        className={`w-5 h-5 text-text-muted shrink-0 transition-transform duration-200 ${openFaq === index ? 'rotate-180' : ''}`}
+                                        strokeWidth={1.5}
+                                    />
+                                </button>
+                                <div
+                                    className={`overflow-hidden transition-all duration-200 ${openFaq === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                                >
+                                    <p className="px-5 pb-4 text-text-secondary text-sm leading-relaxed">
+                                        {item.a}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
+

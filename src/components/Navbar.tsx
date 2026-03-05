@@ -76,6 +76,12 @@ export default function Navbar() {
                     >
                         {t.nav.line}
                     </li>
+                    <li
+                        className="text-text-secondary font-medium text-sm cursor-pointer hover:text-text-primary transition-colors"
+                        onClick={() => scrollTo('contact')}
+                    >
+                        {t.nav.contact}
+                    </li>
                     <li>
                         <button
                             className="bg-accent/10 text-accent border border-accent/30 px-4 py-2 rounded-full font-semibold text-xs cursor-pointer transition-all hover:bg-accent hover:text-white font-[inherit]"

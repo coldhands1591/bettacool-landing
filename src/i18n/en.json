@@ -4,6 +4,7 @@
         "why": "Why bettacool",
         "signup": "Sign Up",
         "line": "LINE Group",
+        "contact": "Contact Us",
         "lang": "TH"
     },
     "hero": {
@@ -201,6 +202,31 @@
         "messagePlaceholder": "Write your message...",
         "button": "Send Message",
         "success": "Message sent! We'll get back to you as soon as possible.",
-        "error": "Please fill in all fields"
+        "error": "Please fill in all fields",
+        "supportEmail": "support@bettacool.com",
+        "supportEmailLabel": "Or email us directly at",
+        "faqTitle": "Frequently Asked Questions",
+        "faq": [
+            {
+                "q": "What is bettacool?",
+                "a": "bettacool is a community app for betta fish enthusiasts. You can post, buy, sell, auction, chat, and share knowledge freely."
+            },
+            {
+                "q": "How do I create an account?",
+                "a": "Download the bettacool app from the App Store or Play Store, then sign up with your Email, Google, or Apple ID."
+            },
+            {
+                "q": "I forgot my password, what should I do?",
+                "a": "Tap 'Forgot Password' on the Sign In screen. We'll send an OTP to your registered email to reset your password."
+            },
+            {
+                "q": "How do I delete my account?",
+                "a": "Go to Settings in the app and select 'Delete Account'. This will permanently remove all your data."
+            },
+            {
+                "q": "Is the app free to use?",
+                "a": "Yes, bettacool is completely free to use with all features included."
+            }
+        ]
     }
 }
