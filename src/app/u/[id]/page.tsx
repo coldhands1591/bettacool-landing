@@ -24,17 +24,22 @@ const PlayStoreIcon = ({ className }: { className?: string }) => (
 interface UserData {
     id: string;
     displayName?: string;
+    username?: string;
     profileUrl?: string;
     bio?: string;
+    totalFollowing: number;
+    totalFollowers: number;
+    totalPosts: number;
 }
 
 async function getUser(id: string): Promise<UserData | null> {
     try {
-        const res = await fetch(`${API_BASE_URL}/user/${id}/profile`, {
+        const res = await fetch(`${API_BASE_URL}/public-web/user/${id}/profile`, {
             next: { revalidate: 60 },
         });
         if (!res.ok) return null;
-        return await res.json();
+        const json = await res.json();
+        return json.success ? json.data : null;
     } catch {
         return null;
     }
@@ -121,20 +126,47 @@ export default async function ProfileSharePage({
                         </div>
                     </div>
 
-                    {user?.displayName && (
-                        <h1 className="text-white text-xl font-semibold">
-                            {user.displayName}
-                        </h1>
+                    {/* Name & Username */}
+                    <div className="text-center">
+                        {user?.displayName && (
+                            <h1 className="text-white text-xl font-semibold">
+                                {user.displayName}
+                            </h1>
+                        )}
+                        {user?.username && (
+                            <p className="text-white/60 text-sm mt-1">
+                                @{user.username}
+                            </p>
+                        )}
+                    </div>
+
+                    {/* Stats Grid */}
+                    {user && (
+                        <div className="flex items-center justify-center gap-6 py-2 border-y border-white/5">
+                            <div className="text-center">
+                                <p className="text-white font-semibold">{user.totalFollowers || 0}</p>
+                                <p className="text-white/40 text-xs">ผู้ติดตาม</p>
+                            </div>
+                            <div className="text-center">
+                                <p className="text-white font-semibold">{user.totalFollowing || 0}</p>
+                                <p className="text-white/40 text-xs">กำลังติดตาม</p>
+                            </div>
+                            <div className="text-center">
+                                <p className="text-white font-semibold">{user.totalPosts || 0}</p>
+                                <p className="text-white/40 text-xs">โพสต์</p>
+                            </div>
+                        </div>
                     )}
 
+                    {/* Bio */}
                     {user?.bio && (
-                        <p className="text-white/60 text-sm leading-relaxed line-clamp-3">
+                        <p className="text-white/80 text-sm leading-relaxed whitespace-pre-line text-center">
                             {user.bio}
                         </p>
                     )}
 
                     {!user && (
-                        <p className="text-white/60 text-base">
+                        <p className="text-white/60 text-base text-center">
                             เปิดแอป bettacool เพื่อดูโปรไฟล์นี้
                         </p>
                     )}
