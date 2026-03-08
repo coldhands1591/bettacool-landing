@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 const API_BASE_URL =
     process.env.API_BASE_URL || "https://api.bettacool.com/api";
@@ -7,6 +8,18 @@ const APP_STORE_URL =
     "https://apps.apple.com/app/bettacool/id6741442231";
 const PLAY_STORE_URL =
     "https://play.google.com/store/apps/details?id=com.bettacool.app";
+
+const AppleIcon = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+    </svg>
+);
+
+const PlayStoreIcon = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.61-.92zm10.89 9.48l2.706-2.706-11.46-6.406 8.754 9.112zm2.706 1.412L14.5 15.412l-8.754 9.112 11.46-6.406-2.706-2.706zM21.243 11.09l-3.13-1.751-2.983 2.983 2.984 2.984 3.13-1.752a1.07 1.07 0 000-1.906v-.558z" />
+    </svg>
+);
 
 interface PostData {
     id: string;
@@ -80,8 +93,8 @@ export default async function PostSharePage({
             <div className="w-full max-w-md mx-auto text-center space-y-6">
                 {/* Logo */}
                 <div className="flex justify-center mb-2">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/20">
-                        <span className="text-white text-2xl font-bold">B</span>
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/20 overflow-hidden">
+                        <Image src="/images/icon.png" alt="bettacool logo" width={64} height={64} className="w-full h-full object-cover" />
                     </div>
                 </div>
 
@@ -132,14 +145,16 @@ export default async function PostSharePage({
                     <div className="flex gap-3">
                         <a
                             href={APP_STORE_URL}
-                            className="flex-1 py-3 px-4 bg-white/10 backdrop-blur text-white text-sm font-medium rounded-xl border border-white/10 hover:bg-white/15 transition-colors"
+                            className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-white/10 backdrop-blur text-white text-sm font-medium rounded-xl border border-white/10 hover:bg-white/15 transition-colors"
                         >
+                            <AppleIcon className="w-[18px] h-[18px]" />
                             App Store
                         </a>
                         <a
                             href={PLAY_STORE_URL}
-                            className="flex-1 py-3 px-4 bg-white/10 backdrop-blur text-white text-sm font-medium rounded-xl border border-white/10 hover:bg-white/15 transition-colors"
+                            className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-white/10 backdrop-blur text-white text-sm font-medium rounded-xl border border-white/10 hover:bg-white/15 transition-colors"
                         >
+                            <PlayStoreIcon className="w-[18px] h-[18px]" />
                             Google Play
                         </a>
                     </div>
