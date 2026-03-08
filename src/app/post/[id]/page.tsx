@@ -92,10 +92,13 @@ export default async function PostSharePage({
         <main className="min-h-screen bg-gradient-to-br from-[#0a0f1e] via-[#111827] to-[#0f172a] flex items-center justify-center p-4">
             <div className="w-full max-w-md mx-auto text-center space-y-6">
                 {/* Logo */}
-                <div className="flex justify-center mb-2">
-                    <div className="w-16 h-16 rounded-2xl bg-[#0a0f1e] flex items-center justify-center shadow-lg shadow-black/20 overflow-hidden">
-                        <Image src="/images/icon.png" alt="bettacool logo" width={64} height={64} className="w-full h-full object-cover" />
+                <div className="flex justify-center items-center gap-3 mb-2">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden">
+                        <Image src="/images/icon.png" alt="bettacool logo" width={48} height={48} className="w-full h-full object-cover" />
                     </div>
+                    <span className="text-3xl font-extrabold tracking-wide brand-gradient">
+                        bettacool
+                    </span>
                 </div>
 
                 {/* Post Preview Card */}
@@ -137,7 +140,7 @@ export default async function PostSharePage({
                 <div className="space-y-3">
                     <a
                         href={`bettacool://post/${id}`}
-                        className="block w-full py-3.5 px-6 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-200 active:scale-[0.98]"
+                        className="block w-full py-3.5 px-6 bg-brand-gradient text-white font-semibold rounded-xl shadow-lg shadow-[#4361ee]/25 hover:shadow-[#4361ee]/40 transition-all duration-200 active:scale-[0.98]"
                     >
                         เปิดในแอป bettacool
                     </a>

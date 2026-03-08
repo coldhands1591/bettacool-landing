@@ -133,6 +133,10 @@ body {
   background-clip: text;
 }
 
+.bg-brand-gradient {
+  background: linear-gradient(90deg, #3a0ca3 0%, #4361ee 50%, #4cc9f0 100%);
+}
+
 /* ====== Glass card ====== */
 .glass-card {
   background: linear-gradient(145deg, rgba(17, 24, 39, 0.9) 0%, rgba(26, 32, 53, 0.6) 100%);
