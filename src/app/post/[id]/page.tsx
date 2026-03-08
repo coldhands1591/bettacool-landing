@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { API_BASE_URL, APP_STORE_URL, PLAY_STORE_URL, SITE_URL, DEEP_LINK_SCHEME } from "@/lib/config";
-import { AppleIcon, PlayStoreIcon, UserIcon } from "@/lib/icons";
+import { AppleIcon, PlayStoreIcon, UserIcon, HeartIcon, CommentIcon } from "@/lib/icons";
 
 interface PostData {
     id: string;
@@ -207,9 +207,15 @@ export default async function PostSharePage({
 
                     {/* Engagement Stats */}
                     {post && (
-                        <div className="flex items-center justify-center gap-4 text-white/40 text-xs pt-1 border-t border-white/5">
-                            <span>❤️ {post.likeCount}</span>
-                            <span>💬 {post.commentCount}</span>
+                        <div className="flex items-center justify-center gap-5 text-white/40 text-xs pt-2 border-t border-white/5">
+                            <span className="flex items-center gap-1.5">
+                                <HeartIcon className="w-3.5 h-3.5 text-rose-400" />
+                                {post.likeCount}
+                            </span>
+                            <span className="flex items-center gap-1.5">
+                                <CommentIcon className="w-3.5 h-3.5 text-sky-400" />
+                                {post.commentCount}
+                            </span>
                         </div>
                     )}
 
