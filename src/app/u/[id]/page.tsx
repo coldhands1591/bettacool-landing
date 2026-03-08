@@ -90,7 +90,7 @@ export default async function ProfileSharePage({
             <div className="w-full max-w-md mx-auto text-center space-y-6">
                 {/* Logo */}
                 <div className="flex justify-center mb-2">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/20 overflow-hidden">
+                    <div className="w-16 h-16 rounded-2xl bg-[#0a0f1e] flex items-center justify-center shadow-lg shadow-black/20 overflow-hidden">
                         <Image src="/images/icon.png" alt="bettacool logo" width={64} height={64} className="w-full h-full object-cover" />
                     </div>
                 </div>
