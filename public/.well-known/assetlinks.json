@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.bettacool.app",
+            "sha256_cert_fingerprints": [
+                "B5:2D:FF:D4:31:B8:7F:1D:97:4D:E8:0E:43:9E:BE:39:7C:78:56:9F:CE:9D:82:64:1C:5C:A7:E9:1D:D9:00:90"
+            ]
+        }
+    }
+]

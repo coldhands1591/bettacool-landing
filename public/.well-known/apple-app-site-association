@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "8NY6TK4S52.com.bettacool.app",
+        "paths": [
+          "/post/*",
+          "/u/*"
+        ]
+      }
+    ]
+  }
+}
