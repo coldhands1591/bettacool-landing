@@ -1,45 +1,89 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-
-const API_BASE_URL =
-    process.env.API_BASE_URL || "https://api.bettacool.com/api";
-
-const APP_STORE_URL =
-    "https://apps.apple.com/app/bettacool/id6741442231";
-const PLAY_STORE_URL =
-    "https://play.google.com/store/apps/details?id=com.bettacool.app";
-
-const AppleIcon = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
-    </svg>
-);
-
-const PlayStoreIcon = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-        <path d="M3.61 1.814L13.793 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.61-.92zm10.89 9.48l2.706-2.706-11.46-6.406 8.754 9.112zm2.706 1.412L14.5 15.412l-8.754 9.112 11.46-6.406-2.706-2.706zM21.243 11.09l-3.13-1.751-2.983 2.983 2.984 2.984 3.13-1.752a1.07 1.07 0 000-1.906v-.558z" />
-    </svg>
-);
+import { API_BASE_URL, APP_STORE_URL, PLAY_STORE_URL, SITE_URL, DEEP_LINK_SCHEME } from "@/lib/config";
+import { AppleIcon, PlayStoreIcon, UserIcon } from "@/lib/icons";
 
 interface PostData {
     id: string;
-    content?: string;
-    user?: {
-        displayName?: string;
-        profileUrl?: string;
-    };
-    mediaUrls?: string[];
+    postTypeKey?: string;
+    caption?: string;
+    imageUrl?: string;
+    likeCount: number;
+    commentCount: number;
+    authorDisplayName?: string;
+    authorUsername?: string;
+    authorProfileUrl?: string;
+    salePrice?: string;
+    saleStatus?: string;
+    auctionStartPrice?: number;
+    auctionFinalPrice?: number;
+    auctionStatus?: string;
 }
 
 async function getPost(id: string): Promise<PostData | null> {
     try {
-        const res = await fetch(`${API_BASE_URL}/post/${id}`, {
+        const res = await fetch(`${API_BASE_URL}/public-web/post/${id}`, {
             next: { revalidate: 60 },
         });
         if (!res.ok) return null;
-        return await res.json();
+        const json = await res.json();
+        return json.success ? json.data : null;
     } catch {
         return null;
+    }
+}
+
+function getPostTypeBadge(post: PostData) {
+    switch (post.postTypeKey) {
+        case "sale":
+            return (
+                <div className="flex items-center justify-center gap-2 flex-wrap">
+                    <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold border border-emerald-500/30">
+                        ขาย
+                    </span>
+                    {post.salePrice && (
+                        <span className="text-emerald-400 font-bold text-sm">
+                            ฿{post.salePrice}
+                        </span>
+                    )}
+                    {post.saleStatus && post.saleStatus !== "available" && (
+                        <span className="px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 text-xs font-medium">
+                            {post.saleStatus === "sold" ? "ขายแล้ว" : "จองแล้ว"}
+                        </span>
+                    )}
+                </div>
+            );
+        case "auction":
+            return (
+                <div className="flex items-center justify-center gap-2 flex-wrap">
+                    <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-semibold border border-amber-500/30">
+                        ประมูล
+                    </span>
+                    {post.auctionFinalPrice ? (
+                        <span className="text-amber-400 font-bold text-sm">
+                            ฿{post.auctionFinalPrice.toLocaleString()}
+                        </span>
+                    ) : post.auctionStartPrice ? (
+                        <span className="text-amber-400/70 text-sm">
+                            เริ่มต้น ฿{post.auctionStartPrice.toLocaleString()}
+                        </span>
+                    ) : null}
+                    {post.auctionStatus && (
+                        <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${post.auctionStatus === "Active"
+                            ? "bg-green-500/20 text-green-400"
+                            : "bg-white/10 text-white/50"
+                            }`}>
+                            {post.auctionStatus === "Active" ? "กำลังประมูล" : "จบแล้ว"}
+                        </span>
+                    )}
+                </div>
+            );
+        default:
+            return (
+                <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-semibold border border-blue-500/30">
+                    โชว์
+                </span>
+            );
     }
 }
 
@@ -51,13 +95,13 @@ export async function generateMetadata({
     const { id } = await params;
     const post = await getPost(id);
 
-    const title = post?.user?.displayName
-        ? `${post.user.displayName} บน bettacool`
+    const title = post?.authorDisplayName
+        ? `${post.authorDisplayName} บน bettacool`
         : "โพสต์บน bettacool";
-    const description = post?.content
-        ? post.content.slice(0, 200)
+    const description = post?.caption
+        ? post.caption.slice(0, 200)
         : "ดูโพสต์นี้บน bettacool — แอปสำหรับคนรักปลากัด";
-    const image = post?.mediaUrls?.[0] || undefined;
+    const image = post?.imageUrl || undefined;
 
     return {
         title,
@@ -65,7 +109,7 @@ export async function generateMetadata({
         openGraph: {
             title,
             description,
-            url: `https://bettacool.com/post/${id}`,
+            url: `${SITE_URL}/post/${id}`,
             siteName: "bettacool",
             type: "article",
             locale: "th_TH",
@@ -103,34 +147,74 @@ export default async function PostSharePage({
 
                 {/* Post Preview Card */}
                 <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 space-y-4">
-                    {post?.mediaUrls?.[0] && (
+                    {/* Image */}
+                    {post?.imageUrl && (
                         <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-white/5">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
-                                src={post.mediaUrls[0]}
+                                src={post.imageUrl}
                                 alt="โพสต์"
                                 className="w-full h-full object-cover"
                             />
                         </div>
                     )}
 
-                    {post?.user?.displayName && (
-                        <p className="text-white/60 text-sm">
-                            โพสต์โดย{" "}
-                            <span className="text-white font-medium">
-                                {post.user.displayName}
-                            </span>
+                    {/* Post Type Badge */}
+                    {post && (
+                        <div className="flex justify-center">
+                            {getPostTypeBadge(post)}
+                        </div>
+                    )}
+
+                    {/* Author Info */}
+                    {post?.authorDisplayName && (
+                        <div className="flex items-center gap-3 justify-center">
+                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/30 to-cyan-400/30 border border-white/20 overflow-hidden shrink-0">
+                                {post.authorProfileUrl ? (
+                                    // eslint-disable-next-line @next/next/no-img-element
+                                    <img
+                                        src={post.authorProfileUrl}
+                                        alt={post.authorDisplayName}
+                                        className="w-full h-full object-cover"
+                                    />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center">
+                                        <svg className="w-4 h-4 text-white/30" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                        </svg>
+                                    </div>
+                                )}
+                            </div>
+                            <div className="text-left">
+                                <p className="text-white text-sm font-medium leading-tight">
+                                    {post.authorDisplayName}
+                                </p>
+                                {post.authorUsername && (
+                                    <p className="text-white/40 text-xs">
+                                        @{post.authorUsername}
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Caption */}
+                    {post?.caption && (
+                        <p className="text-white/80 text-sm leading-relaxed line-clamp-3 text-left whitespace-pre-line">
+                            {post.caption}
                         </p>
                     )}
 
-                    {post?.content && (
-                        <p className="text-white/80 text-base leading-relaxed line-clamp-4">
-                            {post.content}
-                        </p>
+                    {/* Engagement Stats */}
+                    {post && (
+                        <div className="flex items-center justify-center gap-4 text-white/40 text-xs pt-1 border-t border-white/5">
+                            <span>❤️ {post.likeCount}</span>
+                            <span>💬 {post.commentCount}</span>
+                        </div>
                     )}
 
                     {!post && (
-                        <p className="text-white/60 text-base">
+                        <p className="text-white/60 text-base text-center">
                             เปิดแอป bettacool เพื่อดูโพสต์นี้
                         </p>
                     )}
@@ -139,7 +223,7 @@ export default async function PostSharePage({
                 {/* CTA Buttons */}
                 <div className="space-y-3">
                     <a
-                        href={`bettacool://post/${id}`}
+                        href={`${DEEP_LINK_SCHEME}post/${id}`}
                         className="block w-full py-3.5 px-6 bg-brand-gradient text-white font-semibold rounded-xl shadow-lg shadow-[#4361ee]/25 hover:shadow-[#4361ee]/40 transition-all duration-200 active:scale-[0.98]"
                     >
                         เปิดในแอป bettacool
