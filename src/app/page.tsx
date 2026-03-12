@@ -6,7 +6,7 @@ import PainPoints from '@/components/PainPoints';
 import Solution from '@/components/Solution';
 import Features from '@/components/Features';
 import Comparison from '@/components/Comparison';
-import EmailSignup from '@/components/EmailSignup';
+import DownloadSection from '@/components/EmailSignup';
 import BrandStory from '@/components/BrandStory';
 import ContactForm from '@/components/ContactForm';
 import LineGroup from '@/components/LineGroup';
@@ -23,7 +23,7 @@ export default function Home() {
         <Solution />
         <Features />
         <Comparison />
-        <EmailSignup />
+        <DownloadSection />
         <BrandStory />
         <LineGroup />
         <ContactForm />

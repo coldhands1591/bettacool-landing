@@ -2,7 +2,7 @@
     "nav": {
         "features": "Features",
         "why": "Why bettacool",
-        "signup": "Sign Up",
+        "signup": "Download",
         "line": "LINE Group",
         "contact": "Contact Us",
         "lang": "TH"
@@ -12,8 +12,9 @@
         "title": "Home for Betta Fish Lovers",
         "subtitle": "Built by Breeders, for Breeders",
         "description": "Post, auction, buy, sell, chat, and share knowledge — no bans, no blocks.",
-        "cta": "Get Notified When We Launch",
-        "comingSoon": "Coming Soon to App Store & Play Store"
+        "cta": "Download on App Store",
+        "ctaAndroid": "Coming Soon to Play Store",
+        "availableNow": "Available Now on App Store"
     },
     "pain": {
         "title": "Tired of Getting Banned?",
@@ -129,28 +130,16 @@
             ]
         ]
     },
-    "email": {
-        "title": "Be the First to Use bettacool",
-        "subtitle": "Sign up to get notified when the app is ready to download",
-        "platformLabel": "Which platform will you use?",
-        "platformHintIos": "Please use your App Store email to receive the download link directly",
-        "platformHintAndroid": "Please use your Play Store email to receive the download link directly",
-        "platformHintBoth": "Please use your App Store or Play Store email to receive the download link directly",
-        "ios": "iOS",
-        "android": "Android",
-        "both": "Both",
-        "placeholder": "Enter your email",
-        "button": "Notify Me",
-        "loading": "Registering...",
-        "success": "Registered Successfully!",
-        "successDesc": "We'll let you know when the app is ready to download.",
-        "duplicate": "This email is already registered. We'll notify you when ready!",
-        "error": "Please enter a valid email address",
-        "privacy": "We won't spam you and you can unsubscribe anytime.",
-        "socialProof": "people already registered",
+    "download": {
+        "title": "Download bettacool",
+        "subtitle": "It's here! Download now and join the community.",
+        "iosButton": "Download on App Store",
+        "androidButton": "Coming Soon to Play Store",
+        "iosAvailable": "Available Now",
+        "androidComingSoon": "Coming Soon",
+        "freeApp": "Free, no hidden costs",
         "lineGroup": "Join LINE Group bettacool",
-        "lineGroupDesc": "Follow updates, get rewards & join special activities",
-        "registerAnother": "Register another email"
+        "lineGroupDesc": "Follow updates, get rewards & join special activities"
     },
     "brand": {
         "quote": "The Siamese Fighting Fish is a cultural heritage and a source of pride.",

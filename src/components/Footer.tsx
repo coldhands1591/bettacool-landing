@@ -29,7 +29,7 @@ export default function Footer() {
                         <ul className="flex flex-col gap-2.5 list-none">
                             <li><a href="#features" className="text-text-secondary text-sm hover:text-accent transition-colors no-underline">{t.nav.features}</a></li>
                             <li><a href="#comparison" className="text-text-secondary text-sm hover:text-accent transition-colors no-underline">{t.nav.why}</a></li>
-                            <li><a href="#signup" className="text-text-secondary text-sm hover:text-accent transition-colors no-underline">{t.nav.signup}</a></li>
+                            <li><a href="#download" className="text-text-secondary text-sm hover:text-accent transition-colors no-underline">{t.nav.signup}</a></li>
                         </ul>
                     </div>
 

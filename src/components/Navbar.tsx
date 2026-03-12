@@ -66,7 +66,7 @@ export default function Navbar() {
                     </li>
                     <li
                         className="text-text-secondary font-medium text-sm cursor-pointer hover:text-text-primary transition-colors"
-                        onClick={() => scrollTo('signup')}
+                        onClick={() => scrollTo('download')}
                     >
                         {t.nav.signup}
                     </li>
