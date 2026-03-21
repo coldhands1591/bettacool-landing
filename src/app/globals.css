@@ -81,6 +81,34 @@ body {
   }
 }
 
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+  }
+
+  90% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  animation: bubble-rise linear infinite;
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }

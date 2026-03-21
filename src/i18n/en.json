@@ -13,8 +13,9 @@
         "subtitle": "Built by Breeders, for Breeders",
         "description": "Post, auction, buy, sell, chat, and share knowledge — no bans, no blocks.",
         "cta": "Download on App Store",
-        "ctaAndroid": "Coming Soon to Play Store",
-        "availableNow": "Available Now on App Store"
+        "ctaAndroid": "Get it on Google Play",
+        "availableNow": "Available Now on App Store",
+        "availableAndroid": "Available Now on Google Play"
     },
     "pain": {
         "title": "Tired of Getting Banned?",
@@ -134,9 +135,9 @@
         "title": "Download bettacool",
         "subtitle": "It's here! Download now and join the community.",
         "iosButton": "Download on App Store",
-        "androidButton": "Coming Soon to Play Store",
+        "androidButton": "Get it on Google Play",
         "iosAvailable": "Available Now",
-        "androidComingSoon": "Coming Soon",
+        "androidAvailable": "Available Now",
         "freeApp": "Free, no hidden costs",
         "lineGroup": "Join LINE Group bettacool",
         "lineGroupDesc": "Follow updates, get rewards & join special activities"

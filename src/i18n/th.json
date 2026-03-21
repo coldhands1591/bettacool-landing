@@ -13,8 +13,9 @@
         "subtitle": "สร้างโดยคนเลี้ยง เพื่อคนเลี้ยง",
         "description": "โพสต์ ประมูล ซื้อขาย แชท และแชร์ความรู้ ไม่โดนแบน ไม่โดนปิด",
         "cta": "ดาวน์โหลดบน App Store",
-        "ctaAndroid": "เร็วๆ นี้บน Play Store",
-        "availableNow": "พร้อมแล้วบน App Store"
+        "ctaAndroid": "ดาวน์โหลดบน Google Play",
+        "availableNow": "พร้อมแล้วบน App Store",
+        "availableAndroid": "พร้อมแล้วบน Google Play"
     },
     "pain": {
         "title": "เบื่อโดนแบนไหม?",
@@ -134,9 +135,9 @@
         "title": "ดาวน์โหลด bettacool",
         "subtitle": "พร้อมแล้ว! ดาวน์โหลดเลยวันนี้",
         "iosButton": "ดาวน์โหลดบน App Store",
-        "androidButton": "เร็วๆ นี้บน Play Store",
+        "androidButton": "ดาวน์โหลดบน Google Play",
         "iosAvailable": "พร้อมดาวน์โหลดแล้ว",
-        "androidComingSoon": "กำลังจะมาเร็วๆ นี้",
+        "androidAvailable": "พร้อมดาวน์โหลดแล้ว",
         "freeApp": "ฟรี ไม่มีค่าใช้จ่าย",
         "lineGroup": "เข้ากลุ่ม LINE bettacool",
         "lineGroupDesc": "ติดตามข่าวสาร รับรางวัล และร่วมกิจกรรมพิเศษ"
