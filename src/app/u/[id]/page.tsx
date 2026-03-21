@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { API_BASE_URL, APP_STORE_URL, PLAY_STORE_URL, SITE_URL, DEEP_LINK_SCHEME } from "@/lib/config";
 import { AppleIcon, PlayStoreIcon } from "@/lib/icons";
+import SmartAppLink from "@/components/SmartAppLink";
 
 interface UserData {
     id: string;
@@ -159,12 +160,14 @@ export default async function ProfileSharePage({
 
                 {/* CTA Buttons */}
                 <div className="space-y-3">
-                    <a
-                        href={`${DEEP_LINK_SCHEME}u/${id}`}
-                        className="block w-full py-3.5 px-6 bg-brand-gradient text-white font-semibold rounded-xl shadow-lg shadow-[#4361ee]/25 hover:shadow-[#4361ee]/40 transition-all duration-200 active:scale-[0.98]"
+                    <SmartAppLink
+                        deepLink={`${DEEP_LINK_SCHEME}u/${id}`}
+                        appStoreUrl={APP_STORE_URL}
+                        playStoreUrl={PLAY_STORE_URL}
+                        className="block w-full py-3.5 px-6 bg-brand-gradient text-white font-semibold rounded-xl shadow-lg shadow-[#4361ee]/25 hover:shadow-[#4361ee]/40 transition-all duration-200 active:scale-[0.98] text-center"
                     >
                         เปิดในแอป bettacool
-                    </a>
+                    </SmartAppLink>
 
                     <div className="flex gap-3">
                         <a
