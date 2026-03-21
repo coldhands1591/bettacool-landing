@@ -35,7 +35,7 @@ export default function DownloadSection() {
                 </div>
 
                 {/* LINE Group CTA */}
-                <div className="glass-card rounded-2xl p-8 sm:p-10" style={{ transform: 'none' }}>
+                {/* <div className="glass-card rounded-2xl p-8 sm:p-10" style={{ transform: 'none' }}>
                     <a
                         href={LINE_GROUP_URL}
                         target="_blank"
@@ -47,7 +47,7 @@ export default function DownloadSection() {
                         {t.download.lineGroup}
                     </a>
                     <p className="text-text-secondary text-sm mb-0">{t.download.lineGroupDesc}</p>
-                </div>
+                </div> */}
             </div>
         </section>
     );

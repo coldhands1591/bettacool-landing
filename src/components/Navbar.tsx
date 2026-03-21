@@ -70,12 +70,12 @@ export default function Navbar() {
                     >
                         {t.nav.signup}
                     </li>
-                    <li
+                    {/* <li
                         className="text-text-secondary font-medium text-sm cursor-pointer hover:text-[#06C755] transition-colors"
                         onClick={() => scrollTo('line')}
                     >
                         {t.nav.line}
-                    </li>
+                    </li> */}
                     <li
                         className="text-text-secondary font-medium text-sm cursor-pointer hover:text-text-primary transition-colors"
                         onClick={() => scrollTo('contact')}
